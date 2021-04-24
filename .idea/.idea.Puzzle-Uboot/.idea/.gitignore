@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Puzzle-Uboot.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Git-Workspace\_SPGames\Puzzle-Uboot\.idea\.idea.Puzzle-Uboot\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
