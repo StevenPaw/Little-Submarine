@@ -12,6 +12,7 @@ public class MovingBlock : MonoBehaviour
     [SerializeField] private bool canMoveOtherBlocks = false;
     [SerializeField] private LayerMask WhatCanBeMoved;
     [SerializeField] private String blockType;
+
     private void Start()
     {
         objectUndoManager = GetComponent<ObjectUndoManager>();

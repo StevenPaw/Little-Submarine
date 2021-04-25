@@ -11,7 +11,6 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        Debug.Log("Volume: " + PlayerPrefs.GetFloat("volume"));
         if (PlayerPrefs.HasKey("volume"))
         {
             volume = PlayerPrefs.GetFloat("volume");
@@ -27,7 +26,6 @@ public class SoundManager : MonoBehaviour
     {
         volume = volumeIn;
         PlayerPrefs.SetFloat("volume", volume);
-        Debug.Log("Volume set: " + PlayerPrefs.GetFloat("volume"));
     }
 
     public float GetVolume()

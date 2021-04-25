@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [Range(0.0f,10.0f)] [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform movePoint;
 
     [SerializeField] private LayerMask WhatStopsMovement;

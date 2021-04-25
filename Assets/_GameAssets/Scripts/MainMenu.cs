@@ -12,8 +12,11 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-        soundVolumeSlider.value = soundManager.GetVolume();
-        soundVolumeText.text = "VOLUME (" + ((int)(soundVolumeSlider.value * 100)).ToString() + "%)";
+        if (soundManager != null && soundVolumeSlider != null)
+        {
+            soundVolumeSlider.value = soundManager.GetVolume();
+            soundVolumeText.text = "VOLUME (" + ((int) (soundVolumeSlider.value * 100)).ToString() + "%)";
+        }
     }
 
     public void ChangeVolume(float volumeIn)
@@ -30,6 +33,11 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
+    }
+    
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
     
     public void CloseGame()
