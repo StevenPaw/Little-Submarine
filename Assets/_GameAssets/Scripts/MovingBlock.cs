@@ -11,6 +11,7 @@ public class MovingBlock : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private bool canMoveOtherBlocks = false;
     [SerializeField] private LayerMask WhatCanBeMoved;
+    [SerializeField] private String blockType;
     private void Start()
     {
         objectUndoManager = GetComponent<ObjectUndoManager>();
@@ -203,5 +204,10 @@ public class MovingBlock : MonoBehaviour
         }
 
         return false;
+    }
+
+    public String getBlockType()
+    {
+        return blockType;
     }
 }
