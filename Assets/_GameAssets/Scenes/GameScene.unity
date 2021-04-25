@@ -4590,7 +4590,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &148755760
 Transform:
@@ -7493,7 +7493,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &256722044
 Transform:
@@ -7569,7 +7569,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &257482267
 Transform:
@@ -7645,7 +7645,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &257912295
 Transform:
@@ -7783,7 +7783,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &261616687
 Transform:
@@ -12183,7 +12183,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &434219128
 Transform:
@@ -12646,7 +12646,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &446666327
 Transform:
@@ -13429,7 +13429,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &503059286
 Transform:
@@ -17552,7 +17552,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &647191081
 Transform:
@@ -18172,7 +18172,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &662393491
 Transform:
@@ -19769,7 +19769,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &710463186
 Transform:
@@ -21160,7 +21160,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &755668120
 Transform:
@@ -21832,7 +21832,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &793931219
 Transform:
@@ -22207,7 +22207,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &805528539
 Transform:
@@ -23246,7 +23246,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &835459661
 Transform:
@@ -24276,7 +24276,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &892511017
 Transform:
@@ -24912,7 +24912,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &904229017
 Transform:
@@ -25237,7 +25237,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &911118375
 Transform:
@@ -25621,7 +25621,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &920395285
 Transform:
@@ -26134,7 +26134,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &950228689
 Transform:
@@ -28553,7 +28553,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &1071212328
 Transform:
@@ -28974,7 +28974,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1085790153
 Transform:
@@ -29214,7 +29214,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &1090159312
 Transform:
@@ -29446,7 +29446,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &1097660148
 Transform:
@@ -30892,7 +30892,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &1165384175
 Transform:
@@ -31527,7 +31527,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1178082559
 Transform:
@@ -32004,7 +32004,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1203872746
 Transform:
@@ -34778,7 +34778,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &1290208047
 Transform:
@@ -37086,7 +37086,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &1397016418
 Transform:
@@ -40347,7 +40347,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &1523530921
 Transform:
@@ -42768,7 +42768,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &1595025215
 Transform:
@@ -43971,7 +43971,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.9
+  changeIntensityTo: 1
   activateAutomaticIntensity: 1
 --- !u!4 &1632419620
 Transform:
@@ -45049,7 +45049,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1677877441
 Transform:
@@ -46302,7 +46302,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &1720128494
 Transform:
@@ -47387,7 +47387,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &1743675618
 Transform:
@@ -48696,7 +48696,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &1811555736
 Transform:
@@ -52053,7 +52053,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1836695154
 Transform:
@@ -52263,7 +52263,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1849633827
 Transform:
@@ -54018,7 +54018,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.4
+  changeIntensityTo: 0.6
   activateAutomaticIntensity: 0
 --- !u!4 &1917101284
 Transform:
@@ -54946,7 +54946,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &1951718910
 Transform:
@@ -55338,7 +55338,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &1960003163
 Transform:
@@ -56838,7 +56838,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &2014562946
 Transform:
@@ -57323,7 +57323,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.6
+  changeIntensityTo: 0.8
   activateAutomaticIntensity: 0
 --- !u!4 &2028901430
 Transform:
@@ -58412,7 +58412,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.7
+  changeIntensityTo: 0.9
   activateAutomaticIntensity: 0
 --- !u!4 &2074565276
 Transform:
@@ -59298,7 +59298,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &2121278334
 Transform:
@@ -59878,7 +59878,7 @@ MonoBehaviour:
   WhatActivatesTrigger:
     serializedVersion: 2
     m_Bits: 512
-  changeIntensityTo: 0.5
+  changeIntensityTo: 0.7
   activateAutomaticIntensity: 0
 --- !u!4 &2133908066
 Transform:
