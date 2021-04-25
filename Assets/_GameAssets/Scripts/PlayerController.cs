@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MessengerManager messengerManager;
 
     [SerializeField] private KeyCode undoKey;
+
+    [SerializeField] private bool canMove = true;
     
     private void Start()
     {
@@ -29,130 +30,149 @@ public class PlayerController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            if (Input.GetKey(undoKey))
+            if (canMove)
             {
-                UndoMovement();
-            }
-            
-            //RIGHT MOVEMENT
-            if (Input.GetAxisRaw("Horizontal") == 1f)
-            {
-                anim.SetFloat("Horizontal", 1f);
-                anim.SetFloat("Vertical", 0f);
-                if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatStopsMovement))
+                if (Input.GetKey(undoKey))
                 {
-                    //DO NOTHING
+                    UndoMovement();
                 }
-                else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
-                {
-                    GameObject pushedObject = Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed).gameObject;
 
-                    PushBlock(pushedObject, Vector2.right);
-                }
-                else
+                //RIGHT MOVEMENT
+                if (Input.GetAxisRaw("Horizontal") == 1f)
                 {
-                    if (undoManager.addMove(UndoManager.MovementType.RIGHT))
+                    anim.SetFloat("Horizontal", 1f);
+                    anim.SetFloat("Vertical", 0f);
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f),
+                        .2f, WhatStopsMovement))
                     {
-                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                        //DO NOTHING
+                    }
+                    else if (Physics2D.OverlapCircle(
+                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
+                    {
+                        GameObject pushedObject = Physics2D.OverlapCircle(
+                                movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f,
+                                WhatCanBePushed)
+                            .gameObject;
+
+                        PushBlock(pushedObject, Vector2.right);
                     }
                     else
                     {
-                        messengerManager.MessageTooManyMoves();
+                        if (undoManager.addMove(UndoManager.MovementType.RIGHT))
+                        {
+                            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                        }
+                        else
+                        {
+                            messengerManager.MessageTooManyMoves();
+                        }
                     }
                 }
-            }
-            //LEFT MOVEMENT
-            else if (Input.GetAxisRaw("Horizontal") == -1f)
-            {
-                anim.SetFloat("Horizontal", -1f);
-                anim.SetFloat("Vertical", 0f);
-                if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatStopsMovement))
+                //LEFT MOVEMENT
+                else if (Input.GetAxisRaw("Horizontal") == -1f)
                 {
-                    //DO NOTHING
-                }
-                else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
-                {
-                    GameObject pushedObject = Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed).gameObject;
-
-                    PushBlock(pushedObject, Vector2.left);
-                }
-                else
-                {
-                    if (undoManager.addMove(UndoManager.MovementType.LEFT))
+                    anim.SetFloat("Horizontal", -1f);
+                    anim.SetFloat("Vertical", 0f);
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f),
+                        .2f, WhatStopsMovement))
                     {
-                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                        //DO NOTHING
+                    }
+                    else if (Physics2D.OverlapCircle(
+                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
+                    {
+                        GameObject pushedObject = Physics2D.OverlapCircle(
+                                movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f,
+                                WhatCanBePushed)
+                            .gameObject;
+
+                        PushBlock(pushedObject, Vector2.left);
                     }
                     else
                     {
-                        messengerManager.MessageTooManyMoves();
+                        if (undoManager.addMove(UndoManager.MovementType.LEFT))
+                        {
+                            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                        }
+                        else
+                        {
+                            messengerManager.MessageTooManyMoves();
+                        }
                     }
                 }
-            }
 
-            //UP MOVEMENT
-            else if (Input.GetAxisRaw("Vertical") == 1f)
-            {
-                anim.SetFloat("Vertical", 1f);
-                anim.SetFloat("Horizontal", 0f);
-                if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatStopsMovement))
+                //UP MOVEMENT
+                else if (Input.GetAxisRaw("Vertical") == 1f)
                 {
-                    //DO NOTHING
-                }
-                else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatCanBePushed))
-                {
-                    GameObject pushedObject = Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatCanBePushed).gameObject;
-
-                    PushBlock(pushedObject, Vector2.up);
-                }
-                else
-                {
-                    if (undoManager.addMove(UndoManager.MovementType.UP))
+                    anim.SetFloat("Vertical", 1f);
+                    anim.SetFloat("Horizontal", 0f);
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                        WhatStopsMovement))
                     {
-                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                        //DO NOTHING
+                    }
+                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")),
+                        .2f, WhatCanBePushed))
+                    {
+                        GameObject pushedObject = Physics2D.OverlapCircle(
+                                movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                                WhatCanBePushed)
+                            .gameObject;
+
+                        PushBlock(pushedObject, Vector2.up);
                     }
                     else
                     {
-                        messengerManager.MessageTooManyMoves();
+                        if (undoManager.addMove(UndoManager.MovementType.UP))
+                        {
+                            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                        }
+                        else
+                        {
+                            messengerManager.MessageTooManyMoves();
+                        }
                     }
                 }
-            }
-            //DOWN MOVEMENT
-            else if (Input.GetAxisRaw("Vertical") == -1f)
-            {
-                anim.SetFloat("Vertical", -1f);
-                anim.SetFloat("Horizontal", 0f);
-                if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatStopsMovement))
+                //DOWN MOVEMENT
+                else if (Input.GetAxisRaw("Vertical") == -1f)
                 {
-                    //DO NOTHING
-                }
-                else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatCanBePushed))
-                {
-                    GameObject pushedObject = Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f, WhatCanBePushed).gameObject;
-
-                    PushBlock(pushedObject, Vector2.down);
-                }
-                else
-                {
-                    if (undoManager.addMove(UndoManager.MovementType.DOWN))
+                    anim.SetFloat("Vertical", -1f);
+                    anim.SetFloat("Horizontal", 0f);
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                        WhatStopsMovement))
                     {
-                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                        //DO NOTHING
+                    }
+                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")),
+                        .2f, WhatCanBePushed))
+                    {
+                        GameObject pushedObject = Physics2D.OverlapCircle(
+                                movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                                WhatCanBePushed)
+                            .gameObject;
+
+                        PushBlock(pushedObject, Vector2.down);
                     }
                     else
                     {
-                        messengerManager.MessageTooManyMoves();
+                        if (undoManager.addMove(UndoManager.MovementType.DOWN))
+                        {
+                            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                        }
+                        else
+                        {
+                            messengerManager.MessageTooManyMoves();
+                        }
                     }
                 }
+
+                anim.SetBool("moving", false);
             }
-            
-            anim.SetBool("moving", false);
-        }
-        else
-        {
-            anim.SetBool("moving",true);
+            else
+            {
+                anim.SetBool("moving", true);
+            }
         }
     }
 
@@ -282,5 +302,10 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Horizontal", -1f);
             anim.SetFloat("Vertical", 0f);
         }
+    }
+
+    public void SetCanMove(bool canMoveIn)
+    {
+        canMove = canMoveIn;
     }
 }

@@ -10,16 +10,22 @@ public class EnergyButton : MonoBehaviour
     [SerializeField] private String FishTag = "Fish";
     [SerializeField] private String neededFish = "YellowFish";
     [SerializeField] private Animator anim;
+    [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AudioSource audioSource;
     private GameObject savedObject;
     private MovingBlock savedMovingBlock;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
+        audioSource.volume = soundManager.GetVolume();
+        
         if (Physics2D.OverlapCircle(transform.position, .2f, WhatActivatesButton))
         {
             GameObject otherObject = Physics2D.OverlapCircle(transform.position, .2f, WhatActivatesButton).gameObject;
@@ -31,15 +37,23 @@ public class EnergyButton : MonoBehaviour
             if (savedObject.tag == FishTag)
             {
                 if(savedMovingBlock.getBlockType() == neededFish){
-                    buttonActivated = true;
-                    anim.SetBool("isActivated", true);
+                    if (!buttonActivated)
+                    {
+                        buttonActivated = true;
+                        anim.SetBool("isActivated", true);
+                        audioSource.Play();
+                    }
                 }
             }
         }
         else
         {
-            buttonActivated = false;
-            anim.SetBool("isActivated", false);
+            if (buttonActivated)
+            {
+                buttonActivated = false;
+                anim.SetBool("isActivated", false);
+                audioSource.Play();
+            }
         }
     }
 
