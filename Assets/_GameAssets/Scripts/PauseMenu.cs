@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,30 +7,25 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private bool pauseMenuActive = false;
     [SerializeField] private Canvas pauseMenuCanvas;
-    [SerializeField] private KeyCode pauseButton = KeyCode.P;
 
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private TextMeshProUGUI soundVolumeText;
     [SerializeField] private Slider soundVolumeSlider;
 
     [SerializeField] private PlayerController playController;
-    
-    private void Awake()
+
+    private void Start()
     {
         playController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         soundVolumeSlider.value = soundManager.GetVolume();
         soundVolumeText.text = ((int)(soundVolumeSlider.value * 100)).ToString() + "%";
+        
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(pauseButton))
-        {
-            pauseMenuActive = !pauseMenuActive;
-        }
-
         if (pauseMenuActive && !pauseMenuCanvas.enabled)
         {
             pauseMenuCanvas.enabled = true;
@@ -68,5 +60,10 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("GAME IS QUITTING");
         Application.Quit();
+    }
+
+    public void PauseGame()
+    {
+        pauseMenuActive = !pauseMenuActive;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,12 +17,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode undoKey;
 
     [SerializeField] private bool canMove = true;
+
+    private Vector2 rawAxis;
+    private PauseMenu pauseMenu;
     
     private void Start()
     {
         movePoint.parent = null;
         undoManager = GetComponent<UndoManager>();
         messengerManager = GameObject.Find("MessengerManager").GetComponent<MessengerManager>();
+        rawAxis = Vector2.zero;
+        pauseMenu = GameObject.FindWithTag("PauseMenu").GetComponent<PauseMenu>();
     }
 
     private void Update()
@@ -32,26 +38,22 @@ public class PlayerController : MonoBehaviour
         {
             if (canMove)
             {
-                if (Input.GetKey(undoKey))
-                {
-                    UndoMovement();
-                }
 
                 //RIGHT MOVEMENT
-                if (Input.GetAxisRaw("Horizontal") == 1f)
+                if (rawAxis.x == 1f)
                 {
                     anim.SetFloat("Horizontal", 1f);
                     anim.SetFloat("Vertical", 0f);
-                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f),
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(rawAxis.x, 0f),
                         .2f, WhatStopsMovement))
                     {
                         //DO NOTHING
                     }
                     else if (Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
+                        movePoint.position + new Vector3(rawAxis.x, 0f), .2f, WhatCanBePushed))
                     {
                         GameObject pushedObject = Physics2D.OverlapCircle(
-                                movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f,
+                                movePoint.position + new Vector3(rawAxis.x, 0f), .2f,
                                 WhatCanBePushed)
                             .gameObject;
 
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (undoManager.addMove(UndoManager.MovementType.RIGHT))
                         {
-                            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                            movePoint.position += new Vector3(rawAxis.x, 0f);
                         }
                         else
                         {
@@ -70,20 +72,20 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 //LEFT MOVEMENT
-                else if (Input.GetAxisRaw("Horizontal") == -1f)
+                else if (rawAxis.x == -1f)
                 {
                     anim.SetFloat("Horizontal", -1f);
                     anim.SetFloat("Vertical", 0f);
-                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f),
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(rawAxis.x, 0f),
                         .2f, WhatStopsMovement))
                     {
                         //DO NOTHING
                     }
                     else if (Physics2D.OverlapCircle(
-                        movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f, WhatCanBePushed))
+                        movePoint.position + new Vector3(rawAxis.x, 0f), .2f, WhatCanBePushed))
                     {
                         GameObject pushedObject = Physics2D.OverlapCircle(
-                                movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f), .2f,
+                                movePoint.position + new Vector3(rawAxis.x, 0f), .2f,
                                 WhatCanBePushed)
                             .gameObject;
 
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (undoManager.addMove(UndoManager.MovementType.LEFT))
                         {
-                            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+                            movePoint.position += new Vector3(rawAxis.x, 0f);
                         }
                         else
                         {
@@ -103,20 +105,20 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //UP MOVEMENT
-                else if (Input.GetAxisRaw("Vertical") == 1f)
+                else if (rawAxis.y == 1f)
                 {
                     anim.SetFloat("Vertical", 1f);
                     anim.SetFloat("Horizontal", 0f);
-                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, rawAxis.y), .2f,
                         WhatStopsMovement))
                     {
                         //DO NOTHING
                     }
-                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")),
+                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, rawAxis.y),
                         .2f, WhatCanBePushed))
                     {
                         GameObject pushedObject = Physics2D.OverlapCircle(
-                                movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                                movePoint.position + new Vector3(0f, rawAxis.y), .2f,
                                 WhatCanBePushed)
                             .gameObject;
 
@@ -126,7 +128,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (undoManager.addMove(UndoManager.MovementType.UP))
                         {
-                            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                            movePoint.position += new Vector3(0f, rawAxis.y);
                         }
                         else
                         {
@@ -135,20 +137,20 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 //DOWN MOVEMENT
-                else if (Input.GetAxisRaw("Vertical") == -1f)
+                else if (rawAxis.y == -1f)
                 {
                     anim.SetFloat("Vertical", -1f);
                     anim.SetFloat("Horizontal", 0f);
-                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                    if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, rawAxis.y), .2f,
                         WhatStopsMovement))
                     {
                         //DO NOTHING
                     }
-                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")),
+                    else if (Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, rawAxis.y),
                         .2f, WhatCanBePushed))
                     {
                         GameObject pushedObject = Physics2D.OverlapCircle(
-                                movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")), .2f,
+                                movePoint.position + new Vector3(0f, rawAxis.y), .2f,
                                 WhatCanBePushed)
                             .gameObject;
 
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (undoManager.addMove(UndoManager.MovementType.DOWN))
                         {
-                            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"));
+                            movePoint.position += new Vector3(0f, rawAxis.y);
                         }
                         else
                         {
@@ -307,5 +309,26 @@ public class PlayerController : MonoBehaviour
     public void SetCanMove(bool canMoveIn)
     {
         canMove = canMoveIn;
+    }
+
+    public void BTN_Undo(InputAction.CallbackContext ctx)
+    {
+        if (canMove)
+        {
+            UndoMovement();
+        }
+    }
+
+    public void BTN_Move(InputAction.CallbackContext ctx)
+    {
+        if (canMove)
+        {
+            rawAxis = ctx.ReadValue<Vector2>();
+        }
+    }
+
+    public void BTN_Pause(InputAction.CallbackContext ctx)
+    {
+        pauseMenu.PauseGame();
     }
 }
